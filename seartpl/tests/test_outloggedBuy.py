@@ -17,6 +17,9 @@ class TestOne(BaseClass):
         self.driver.get("https://www.seart.pl/")
 
     def test_OutloggedBuy(self, setup):
+        #ODKOMENTOWAĆ DO TESTÓW
+        
+        
         # homePage = HomePage(self.driver)
         # home_page_actions = HomePageActions(self.driver)
         # homePage.homePage_assertions()
@@ -26,12 +29,14 @@ class TestOne(BaseClass):
         # home_page_actions.menu_homepge()
         pass
     def test_Collection(self):
+        #ODKOMENTOWAĆ DO TESTÓW
         # category_page = CategoryPage(self.driver)
         # category_page_actions = CategoryActions(self.driver)
 
         # category_page.catPage_assertions()
         pass
     def test_search(self):
+        #ODKOMENTOWAĆ DO TESTÓW
         # self.goHome()
         # homePage = HomePageActions(self.driver)
         # homePage.searchDesktop()
@@ -42,6 +47,7 @@ class TestOne(BaseClass):
         pass
 
     def test_simpleBuy(self):
+        #ODKOMENTOWAĆ DO TESTÓW
         self.goHome()
         product = Products(self.driver)
         productActions = ProductActions(self.driver)
@@ -56,5 +62,6 @@ class TestOne(BaseClass):
         productActions.fillOutForm()
 
     def test_simpleWithCustomOptionsBuy(self):
+        #ODKOMENTOWAĆ DO TESTÓW
         # self.goHome()
         pass
