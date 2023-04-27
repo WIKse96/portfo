@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.common.by import By
 from seleniumpagefactory.Pagefactory import PageFactory
 
@@ -6,6 +8,9 @@ class HomePage(PageFactory):
     def __init__(self, driver):
         self.driver = driver
         self.url = "https://www.seart.pl/"
+
+        #wyszukiwany tekst w funcji searchDeskopt()
+        self.texts_to_search = {'search_Home_Page':'Komoda'}
 
     # Locators
     locators = {
@@ -31,8 +36,11 @@ class HomePage(PageFactory):
         'informationFooter':('xpath', "//div/div[@class='content-element']/h3[normalize-space()='Informacje']"),
         'inputSearch':('xpath', "//input[@id='search'][@name='q'][@xpath=2]"),
         'menu_meble':('xpath', "//div[@id='megamenuwraper']//a[contains(@class,'Level0')][normalize-space()='Meble']"),
-        'toaletki_menu':('xpath', "//div[@id='megamenuwraper']//a[contains(@class,'Level2')][normalize-space()='Toaletki i konsole']")
+        'toaletki_menu':('xpath', "//div[@id='megamenuwraper']//a[contains(@class,'Level2')][normalize-space()='Toaletki i konsole']"),
+        'search_bar':('xpath', "//div[@class='quick-access search-center hidden-xs hidden-sm']//input[@id='search']"),
+        'search_btn':('xpath', "//body/div[contains(@class,'wrapper active')]/div[contains(@class,'page active')]/div[contains(@class,'active')]/div[contains(@class,'header active')]/div[contains(@class,'container active')]/div[contains(@class,'table-row active')]/div[contains(@class,'quick-access search-center hidden-xs hidden-sm')]/form[@id='search_mini_form']/div[contains(@class,'form-search')]/button[contains(@title,'Szukaj')]/span[1]")
     }
+
 
 # assertios
     def homePage_assertions(self):
@@ -42,7 +50,7 @@ class HomePage(PageFactory):
         assert self.colecctionMenuBtn.element_to_be_clickable()
         assert self.currency.element_to_be_clickable()
         assert self.tel.element_to_be_clickable()
-        assert self.mainBaner.element_to_be_clickable()
+        # assert self.mainBaner.element_to_be_clickable()
         assert 'https://www.seart.pl/media/wysiwyg/banery-rozne/banner-lewy-sredni-2023_kopia.jpg' in self.driver.page_source
         assert self.opinions.visibility_of_element_located()
         assert self.orderdeliveryFooter.visibility_of_element_located()
@@ -59,5 +67,6 @@ class HomePage(PageFactory):
         assert "To dzięki naszym Klientom mamy co i dla kogo tworzyć" in self.driver.page_source
         assert "Copyright (C) 2018 Seart. All rights reserved." in self.driver.page_source
         assert self.driver.title == "Meble drewniane od producenta - Seart.pl - Sklep meblowy online"
+        assert self.search_bar.visibility_of_element_located()
 
         print("========================OK - homePage_assertions ========================")

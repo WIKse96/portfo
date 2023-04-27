@@ -28,3 +28,12 @@ class HomePageActions(HomePage):
         action.perform()
 
         pass
+    def searchDesktop(self):
+        self.search_bar.set_text(self.texts_to_search['search_Home_Page'])
+        self.search_btn.click_button()
+        highlighted_links = self.driver.find_elements(By.XPATH, "//span[@class='searchindex-highlight']")
+        for idx, highlighted_link in enumerate(highlighted_links):
+            print(idx, highlighted_link.text)
+            assert 'Komoda' == highlighted_link.text
+            break
+        print('============================ OK - searcjDesktop ============================')
