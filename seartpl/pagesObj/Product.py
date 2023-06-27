@@ -3,7 +3,8 @@ from seleniumpagefactory.Pagefactory import PageFactory
 class Products(PageFactory):
     def __init__(self, driver):
         self.driver = driver
-        self.url = 'https://www.seart.pl/witryna-sosnowa-vintage.html'
+        self.urlSimple = 'https://www.seart.pl/witryna-sosnowa-vintage.html'
+        self.urlGrouped = 'https://www.seart.pl/lozko-drewniane-debowe-z-wezglowiem-tapicerowanym-urban-forest-5-140x200.html'
 
     locators = {
         'addToCartBtn': ('xpath', "//span[contains(text(),'Do koszyka')]"),
@@ -40,4 +41,7 @@ class Products(PageFactory):
 
 
     def goSimpleProduct(self):
-        self.driver.get(self.url)
+        self.driver.get(self.urlSimple)
+
+    def goGroupedProduct(self):
+        self.driver.get(self.urlGrouped)
