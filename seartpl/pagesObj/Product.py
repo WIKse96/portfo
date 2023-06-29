@@ -21,7 +21,7 @@ class Products(PageFactory):
         'tel':('xpath', "//input[@id='billing:telephone']"),
         'street':('xpath', "//input[@id='billing:street1']"),
         'address':('xpath', "//input[@id='billing:street2']"),
-        'floor':('xpath', "//input[@id='billing:floor']"),
+        'floor':('xpath', "//input[@id='billingfloor']"),
         'postCode':('xpath', "//input[@id='billing:postcode']"),
         'city':('xpath', "//input[@id='billing:city']"),
         'delivery':('xpath', "//label[@for='s_method_flatrate_flatrate']"),

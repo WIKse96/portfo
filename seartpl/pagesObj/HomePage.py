@@ -9,8 +9,7 @@ class HomePage(PageFactory):
         self.driver = driver
         self.url = "https://www.seart.pl/"
 
-        #wyszukiwany tekst w funcji searchDeskopt()
-        self.texts_to_search = {'search_Home_Page':'Komoda'}
+
 
     # Locators
     locators = {
@@ -37,7 +36,7 @@ class HomePage(PageFactory):
         'inputSearch':('xpath', "//input[@id='search'][@name='q'][@xpath=2]"),
         'menu_meble':('xpath', "//div[@id='megamenuwraper']//a[contains(@class,'Level0')][normalize-space()='Meble']"),
         'toaletki_menu':('xpath', "//div[@id='megamenuwraper']//a[contains(@class,'Level2')][normalize-space()='Toaletki i konsole']"),
-        'search_bar':('xpath', "//div[@class='quick-access search-center hidden-xs hidden-sm']//input[@id='search']"),
+        'search_bar':('xpath', "//div[@class='quick-access search-center hidden-xs hidden-sm']/form[@id='search_mini_form']/div[@class='form-search']/input[@id='search']"),
         'search_btn':('xpath', "//body/div[contains(@class,'wrapper active')]/div[contains(@class,'page active')]/div[contains(@class,'active')]/div[contains(@class,'header active')]/div[contains(@class,'container active')]/div[contains(@class,'table-row active')]/div[contains(@class,'quick-access search-center hidden-xs hidden-sm')]/form[@id='search_mini_form']/div[contains(@class,'form-search')]/button[contains(@title,'Szukaj')]/span[1]")
     }
 

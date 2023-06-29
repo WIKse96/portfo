@@ -47,6 +47,7 @@ class ProductActions(Products):
         self.city.set_text(self.datas['city'])
         self.comment.set_text(self.datas['comment'])
         self.delivery.click_button()
+        time.sleep(2)
         self.payment.click_button()
         time.sleep(2)
         self.accept1.click_button()

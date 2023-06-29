@@ -12,7 +12,8 @@ class ProductsSale(PageFactory):
         'szafka':('xpath', "//a[@title='Drewniana Szafka RTV Country Limited 17 - WYPRZEDAŻ']"),
         'newPrice':('xpath', "//span[@id='product-price-18571']"),
         'oldPrice':('xpath', "//span[@id='old-price-18571']"),
-        'descWrapper':('xpath', "//div[@class='description-wrapper']")
+        'descWrapper':('xpath', "//div[@class='description-wrapper']"),
+        'prodToOpen': ('xpath', "//img[@alt='Drewniana Szafka RTV ']")
 
     }
 
@@ -33,17 +34,11 @@ class ProductsSale(PageFactory):
         self.create_dictionary()
 
 
-    def goProd(self):
-       pass
-
-
 
 
 
     def get_elements(self, by, locator):
         return self.driver.find_elements(by, locator)
-
-
 
     def create_dictionary(self):
         #boxy z ceną, które zawierają obecną cenę i przeceniona

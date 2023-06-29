@@ -9,6 +9,8 @@ class HomePageActions(HomePage):
     def __init__(self, driver):
         self.searchIcon = None
         self.driver = driver
+        #wyszukiwany tekst w funcji searchDeskopt(), key - pierwsze szukanie, value - tekst do szukania
+        self.searchTextsDic = {1:'komoda'}
 
     # button click
 
@@ -29,11 +31,11 @@ class HomePageActions(HomePage):
 
         pass
     def searchDesktop(self):
-        self.search_bar.set_text(self.texts_to_search['search_Home_Page'])
+        self.search_bar.click_button()
+        self.search_bar.set_text(self.searchTextsDic[1])
         self.search_btn.click_button()
         highlighted_links = self.driver.find_elements(By.XPATH, "//span[@class='searchindex-highlight']")
         for idx, highlighted_link in enumerate(highlighted_links):
-            print(idx, highlighted_link.text)
-            assert 'Komoda' == highlighted_link.text
+            assert self.searchTextsDic[1] == highlighted_link.text.lower()
             break
         print('============================ OK - searcjDesktop ============================')
