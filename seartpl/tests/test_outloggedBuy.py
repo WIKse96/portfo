@@ -1,7 +1,4 @@
 import pytest
-from selenium.webdriver.common.by import By
-from seleniumpagefactory.Pagefactory import PageFactory
-
 from actions.Category_actions import CategoryActions
 from pagesObj.CategoryPage import CategoryPage
 from utilities.BaseClass import BaseClass
@@ -21,60 +18,68 @@ class TestOne(BaseClass):
     def goSales(self):
         self.driver.get("https://www.seart.pl/wyprzedaz-c-462.html")
 
+    def goSaleProd(self):
+       self.driver.get("https://www.seart.pl/drewniana-szafka-rtv-country-limited-17.html")
+
     def test_OutloggedBuy(self, setup):
         # ODKOMENTOWAĆ DO TESTÓW
 
-        # homePage = HomePage(self.driver)
-        # home_page_actions = HomePageActions(self.driver)
-        # homePage.homePage_assertions()
-        #
-        # home_page_actions.loginBtnClick()
-        # home_page_actions.searchTest()
-        # home_page_actions.menu_homepge()
+        homePage = HomePage(self.driver)
+        home_page_actions = HomePageActions(self.driver)
+        homePage.homePage_assertions()
+
+        home_page_actions.loginBtnClick()
+        home_page_actions.searchTest()
+        home_page_actions.menu_homepge()
         pass
 
     def test_Collection(self):
         # ODKOMENTOWAĆ DO TESTÓW
-        # category_page = CategoryPage(self.driver)
-        # category_page_actions = CategoryActions(self.driver)
+        category_page = CategoryPage(self.driver)
+        category_page_actions = CategoryActions(self.driver)
 
-        # category_page.catPage_assertions()
+        category_page.catPage_assertions()
         pass
 
     def test_search(self):
         # ODKOMENTOWAĆ DO TESTÓW
-        # self.goHome()
-        # homePage = HomePageActions(self.driver)
-        # homePage.searchDesktop()
+        self.goHome()
+        homePage = HomePageActions(self.driver)
+        homePage.searchDesktop()
         pass
 
+    # testowanie produktu grupowanego
     def test_groupedBuy(self):
         # self.goHome()
         pass
 
+
+    #testowanie produktu prostego
     def test_simpleBuy(self):
         # ODKOMENTOWAĆ DO TESTÓW
-        # self.goHome()
-        # product = Products(self.driver)
-        # productActions = ProductActions(self.driver)
-        #
-        # product.goSimpleProduct()
-        #
-        # product.SimpleProduct_assertions()
-        # productActions.addToCartClick()
-        # productActions.goToCart()
-        # productActions.goToCheckout()
-        # productActions.fillOutForm()
+        self.goHome()
+        product = Products(self.driver)
+        productActions = ProductActions(self.driver)
+
+        product.goSimpleProduct()
+
+        product.SimpleProduct_assertions()
+        productActions.addToCartClick()
+        productActions.goToCart()
+        productActions.goToCheckout()
+        productActions.fillOutForm()
         pass
 
+    #Testowanie produktu z opcjami indywidualnymi
     def test_simpleWithCustomOptionsBuy(self):
         # ODKOMENTOWAĆ DO TESTÓW
-        # self.goHome()
+        self.goHome()
         pass
 
+    #testowanie czy moduł promocji działa poprawnie
     def test_sales(self):
         self.goSales()
         sale = ProductsSale(self.driver)
         sale.Sale_assertions()
-        sale.goProd()
-
+        self.goSaleProd()
+        pass
