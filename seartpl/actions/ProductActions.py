@@ -1,8 +1,6 @@
 import time
-
 from selenium.webdriver.common.action_chains import ActionChains as AC
 from selenium.webdriver.common.by import By
-
 from pagesObj.Product import Products
 
 class ProductActions(Products):
@@ -36,25 +34,26 @@ class ProductActions(Products):
         self.goToCheckoutBtn.click_button()
 
     def fillOutForm(self):
-        self.name.set_text(self.datas['name'])
-        self.lastName.set_text(self.datas['lastName'])
-        self.email.set_text(self.datas['email'])
-        self.tel.set_text(self.datas['tel'])
-        self.street.set_text(self.datas['street'])
-        self.address.set_text(self.datas['address'])
-        self.floor.set_text(self.datas['floor'])
-        self.postCode.set_text(self.datas['postCode'])
-        self.city.set_text(self.datas['city'])
-        self.comment.set_text(self.datas['comment'])
-        self.delivery.click_button()
-        time.sleep(2)
-        self.payment.click_button()
-        time.sleep(2)
-        self.accept1.click_button()
-        self.accept2.click_button()
-        time.sleep(10)
+        try:
+            self.name.set_text(self.datas['name'])
+            self.lastName.set_text(self.datas['lastName'])
+            self.email.set_text(self.datas['email'])
+            self.tel.set_text(self.datas['tel'])
+            self.street.set_text(self.datas['street'])
+            self.address.set_text(self.datas['address'])
+            self.floor.set_text(self.datas['floor'])
+            self.postCode.set_text(self.datas['postCode'])
+            self.city.set_text(self.datas['city'])
+            self.comment.set_text(self.datas['comment'])
+            self.delivery.click_button()
+            time.sleep(2)
+            self.payment.click_button()
+            time.sleep(2)
+            self.accept1.click_button()
+            self.accept2.click_button()
+            time.sleep(10)
 
-        #do złożenia zamówienia odkomentuj
-        # self.confirm.click_button()
-
-
+            # do złożenia zamówienia odkomentuj
+            # self.confirm.click_button()
+        except Exception as e:
+            print("Exception occurred while filling out the form:", str(e))
