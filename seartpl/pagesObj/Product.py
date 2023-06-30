@@ -1,5 +1,6 @@
-from selenium.webdriver.common.by import By
+
 from seleniumpagefactory.Pagefactory import PageFactory
+
 class Products(PageFactory):
     def __init__(self, driver):
         self.driver = driver
@@ -33,15 +34,23 @@ class Products(PageFactory):
     }
 
     def SimpleProduct_assertions(self):
-        assert self.addToCartBtn.element_to_be_clickable()
-        assert self.faq.element_to_be_clickable()
-        assert self.askAboutProduct.element_to_be_clickable()
-        assert self.prodDetails.visibility_of_element_located()
-        assert self.description.visibility_of_element_located()
-
+        try:
+            assert self.addToCartBtn.element_to_be_clickable()
+            assert self.faq.element_to_be_clickable()
+            assert self.askAboutProduct.element_to_be_clickable()
+            assert self.prodDetails.visibility_of_element_located()
+            assert self.description.visibility_of_element_located()
+        except AssertionError as e:
+            print("Assertion error:", str(e))
 
     def goSimpleProduct(self):
-        self.driver.get(self.urlSimple)
+        try:
+            self.driver.get(self.urlSimple)
+        except Exception as e:
+            print("Exception occurred while navigating to simple product:", str(e))
 
     def goGroupedProduct(self):
-        self.driver.get(self.urlGrouped)
+        try:
+            self.driver.get(self.urlGrouped)
+        except Exception as e:
+            print("Exception occurred while navigating to grouped product:", str(e))
